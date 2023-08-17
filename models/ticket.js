@@ -5,6 +5,7 @@ const { Schema } = mongoose;
 const ticketSchema = new Schema({
     date: String,
     time: String,
+    ticketNumber: Number,
     title: String,
     description: String,
     companies: [{
