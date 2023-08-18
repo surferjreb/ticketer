@@ -1,18 +1,21 @@
 const mongoose = require('mongoose');
+const ticketDB = 'mongodb://127.0.0.1:27017/ticketer';
 
-
-const gracefulShutdown = (msg, callback) => {
+const _gracefulShutdown = (msg, callback) => {
     mongoose.connection.disconnect( () => {
         console.log('Database disconnected: ' + msg);
         callback();
     });
 }
 
-async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/ticketer');
+const _ticket = async () => {
+    await mongoose.connect(ticketDb);
 }
 
-main().then(() => {
+const connectDB = 
+
+
+_ticket().then(() => {
         console.log("Connection Open!!");
     }).catch( err => {
         console.log("Whoops...");
