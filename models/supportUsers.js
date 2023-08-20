@@ -14,7 +14,11 @@ const supportUsersSchema = new Schema({
     email: {
         type: String,
         required: true
-    }
+    },
+    tickets: [{
+        type: Schema.Types.ObjectId,
+        ref: ticket
+    }]
 });
 
 module.exports = mongoose.model('supportUsers', supportUsersSchema);
