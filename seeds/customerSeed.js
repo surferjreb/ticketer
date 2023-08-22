@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const customer = require('../models/customer');
 require('../models/db');
 
@@ -49,3 +48,4 @@ const c = customer.insertMany(customerSeeds)
     console.log(err);
 });
 
+console.log(c);
