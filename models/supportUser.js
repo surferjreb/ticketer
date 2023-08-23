@@ -15,10 +15,12 @@ const supportUsersSchema = new Schema({
         type: String,
         required: true
     },
-    tickets: [{
-        type: Schema.Types.ObjectId,
-        ref: ticket
-    }]
+    tickets: {
+        type: Number,
+        default: 0
+    }
 });
 
-module.exports = mongoose.model('supportUsers', supportUsersSchema);
+const supportUser = mongoose.model('supportUser', supportUsersSchema);
+
+module.exports = supportUser;

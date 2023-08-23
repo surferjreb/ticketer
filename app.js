@@ -10,6 +10,7 @@ const app = express();
 const port = 8080;
 
 const indexRouter = require('./routes/index.js');
+const ticketRouter = require('./routes/ticket.js')
 const supportRouter = require('./routes/supportUsers.js');
 
 app.engine('ejs', ejsMate);
@@ -22,6 +23,7 @@ app.use(methodOverride('_method'));
 
 
 app.use('/', indexRouter);
+app.use('/tickets', ticketRouter);
 app.use('/supportUser', supportRouter);
 
 app.use((err, reg, res, next) => {

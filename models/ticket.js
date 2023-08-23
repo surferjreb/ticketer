@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+const company = require('./company');
+const customer = require('./customer');
+const supportUser = require('./supportUser');
 const { Schema } = mongoose;
 
 
@@ -16,10 +19,10 @@ const ticketSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: customer
     }],
-    supportUser: {
+    owners: [{
         type: Schema.Types.ObjectId,
         ref: supportUser
-    },
+    }],
     ticketStatus: {
         type: String,
         lowercase: true,
@@ -27,4 +30,6 @@ const ticketSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('ticket', ticketSchema);
+const ticket = mongoose.model('ticket', ticketSchema);
+
+module.exports = ticket;

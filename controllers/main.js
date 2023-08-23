@@ -1,7 +1,12 @@
+const mongoose = require('mongoose');
+const ticket = require('../models/ticket');
+const supportUser = require('../models/supportUser');
 
 
-const _getHomeView = (req, res) => {
-    res.render( 'index', { title: 'Ticketer'} );
+const _getHomeView = async (req, res) => {
+    const tickets = await ticket.find({'ticketStatus': 'open' });
+    
+    res.render( 'index', { title: 'Ticketer', tickets: tickets } );
 }
 
 
