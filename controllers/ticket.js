@@ -33,7 +33,8 @@ const _getTicketForm = catchAsync( async (req, res, next) => {
 });
 
 const _createTicket = catchAsync( async (req, res) => {
-    console.log(req.body.ticket);
+    const newTicket = new ticket(req.body.ticket);
+    console.log(newTicket.customers);
     res.send('success');
 });
 
