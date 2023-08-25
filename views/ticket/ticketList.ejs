@@ -20,7 +20,7 @@
                 <tbody>
                     <% for(let ticket of openTickets) { %>
                         <tr>
-                            <td><%= ticket.ticketNumber %></td>
+                            <td><a href="/tickets/<%= ticket._id %>"><%= ticket.ticketNumber %></a></td>
                             <td><%= ticket.title %></td>
                             <td><%= ticket.ticketStatus %></td>
                         </tr>

@@ -4,7 +4,7 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const ExpressError = require('./utils/ExpressError');
-require('./models/db.js');
+const db = require('./models/db.js');
 
 const app = express();
 const port = 8080;
@@ -37,5 +37,6 @@ app.all('*', (req, res, next) => {
 });
 
 app.listen(port, () => {
+    console.log(db);
     console.log(`listening at port: ${port}`);
 });

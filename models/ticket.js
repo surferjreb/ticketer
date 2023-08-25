@@ -26,7 +26,7 @@ const ticketSchema = new Schema({
     ticketStatus: {
         type: String,
         lowercase: true,
-        enum: ['new', 'open', 'onhold', 'completed']
+        enum: ['new', 'open', 'onhold', 'closed']
     }
 });
 

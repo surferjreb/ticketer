@@ -1,14 +1,15 @@
-const ticket = require('../models/ticket')
-require('../models/db');
+const mongoose = require('mongoose');
+const ticket = require('../models/ticket');
+const db = require('../models/db');
 
-
+console.log(db);
 const ticketSeed = [
     {
-        date: '21/08/23',
-        time: '14:00:00',
-        ticketNumber: 1,
-        title: "Test",
-        description: 'Some stuff will go here',
+        date: '22/08/23',
+        time: '15:00:00',
+        ticketNumber: 11,
+        title: "Test 11",
+        description: 'More, More, More, More of Some stuff that should go here.',
         companies: [
             "64e3c7d516ac523a34fdaa03"
         ],
@@ -21,11 +22,11 @@ const ticketSeed = [
         ticketStatus: 'open'
     },
     {
-        date: '21/08/23',
-        time: '17:00:00',
-        ticketNumber: 2,
-        title: "Test 2",
-        description: 'Some other stuff will go here',
+        date: '22/08/23',
+        time: '16:00:00',
+        ticketNumber: 12,
+        title: "Test 12",
+        description: 'Things happened, some more things and then come more things.  Inspected customer logs, adjusted configuration.',
         companies: [
             "64e3c7d516ac523a34fdaa03"
         ],
@@ -36,10 +37,20 @@ const ticketSeed = [
         owners: [
             "64e3d07d38bb82a3417258aa"
         ],
-        ticketStatus: 'open'
+        ticketStatus: 'closed'
     },
 ]
 
-const ts = ticket.insertMany(ticketSeed);
+const seedDB = async () => {
+    for(let seed of ticketSeed ) {
+        const ts = new ticket(seed);
+        console.log(ts);
+        await ts.save();
+    }
+}
 
-console.log(ts);
+seedDB().then(() => {
+    mongoose.connection.close();
+});
+
+
