@@ -37,6 +37,6 @@ app.all('*', (req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(db);
+    //console.log(db);
     console.log(`listening at port: ${port}`);
 });

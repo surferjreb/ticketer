@@ -2,21 +2,74 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col"></div>
+        <div class="col border-end"></div>
         <div class="col">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                  <h5 class="card-title"><%= tickDetail.title %></h5>
-                  <h6 class="card-subtitle mb-2 text-body-secondary"><%= tickDetail.owners %></h6>
-                  <h6 class="card-subtitle mb-2 text-body-secondary"><%= tickDetail.companies %></h6>
-                  <h6 class="card-subtitle mb-2 text-body-secondary"><%= tickDetail.customers %></h6>
-                  <h6 class="card-subtitle mb-2 text-body-secondary"><%= tickDetail.ticketStatus %></h6>
-                  
-                  <p class="card-text"><%= tickDetail.description %></p>
-                  
-                </div>
+            <div class="row display-6 my-5">
+                <div class="col ">Title: </div>
+                <div class="col align-content-start"><%= tickDetail.title %></div>
+                <div class="col "></div>
+            </div>
+            <div class="row display-6 text-start">
+                
+                <div class="col "></div>
             </div>
         </div>
-        <div class="col"></div>
+        <div class="col border-start"></div>
+        
+    </div>
+    <div class="row">
+        <div class="col border-end"></div>
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <div class="row mt-3 ">
+                        <div class="col-sm-5">
+                            <p>Owner: </p>
+                        </div>
+                        <div class="col-auto">
+                            <p><%= owners.lastName %>, <%= owners.firstName %></p>
+                        </div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-sm-5">
+                            <p>Company: </p>
+                        </div>
+                        <div class="col">
+                            <p><%= companies.companyName %></p>
+                        </div>
+                    </div>
+                   
+                </div>
+                <div class="col">
+                    <div class="row mt-3 ">
+                        <div class="col-sm-5">
+                            <p>Status: </p>
+                        </div>
+                        <div class="col"><%= tickDetail.ticketStatus %></div>
+                    </div>
+                    <div class="row my-1">
+                        <div class="col-sm-5">Customer: </div>
+                        <div class="col"><%= customers.lastName %>, <%= customers.firstName %></div>
+                    </div>
+                </div>
+            </div>
+           <div class="row mt-5">
+            <div class="col"></div>
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                
+                      <p class="card-text"><%= tickDetail.description %></p>
+                      
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+           </div>
+        </div>
+        
+        <div class="col border-start">
+           
+        </div>
     </div>
 </div>

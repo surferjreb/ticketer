@@ -1,0 +1,76 @@
+<% layout('layouts/boilerplate') %>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form class="form mb-3" action="/tickets" method="POST">
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="title" >Title: </label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" id="title" name="">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label">Description</label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="textarea" name="">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="owner">Owner: </label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="owner" name="owner" aria-label="Owner">
+                            <option selected>Open this select menu</option>
+                            <% for(let owner of owners) { %>
+                                <option value="1"><%= owner.lastName%>, <%= owner.firstName %></option>
+                            <% } %>    
+                          </select>
+                    </div>
+                    
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="company">Company: </label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="company" name="company" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <% for(let comp of companies) { %>
+                                <option value="1"><%= comp.companyName %></option>
+                            <% } %>
+                          </select>
+                    </div>
+                    
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="customer">Customer: </label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" id="customer" name="customer" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <% for(let cus of customers) { %>
+                                <option value="1"><%= cus.lastName%>, <%= cus.firstName %></option>
+                            <% } %>
+                          </select>
+                    </div>
+                    
+                </div>
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-info mb-3">Create</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
+    
+</div>

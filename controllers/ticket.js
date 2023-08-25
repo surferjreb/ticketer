@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const ticket = require('../models/ticket');
 const supportUser = require('../models/supportUser');
+const company = require('../models/company');
+const customer = require('../models/customer');
 const catchAsync = require('../utils/catchAsync');
 
 
@@ -14,11 +16,28 @@ const _getHomeView = catchAsync(async (req, res) => {
 
 const _getTicket = catchAsync(async (req, res) => {
     const { id } = req.params;
-    console.log(id);
+    
     const tickDetail = await ticket.findById(id);
-    res.render( 'ticket/show', { title: 'Ticket', tickDetail });
+    const owners = await supportUser.findById(tickDetail.owners);
+    const companies = await company.findById(tickDetail.companies);
+    const customers = await customer.findById(tickDetail.customers);
+    res.render( 'ticket/show', { title: 'Ticket', tickDetail, owners , companies, customers });
 });
 
+const _getTicketForm = catchAsync( async (req, res, next) => {
+    const companies = await company.find({});
+    const owners = await supportUser.find({});
+    const customers = await customer.find({});
+
+    res.render('ticket/new', { title: 'New Ticket', owners, companies, customers });
+});
+
+const _createTicket = catchAsync( async (req, res) => {
+    console.log(req.body.ticket);
+    res.send('success');
+});
 
 module.exports.getHomeView = _getHomeView;
 module.exports.getTicket = _getTicket;
+module.exports.getTicketForm = _getTicketForm;
+module.exports.createTicket = _createTicket;
