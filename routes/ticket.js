@@ -12,7 +12,11 @@ router.post('/', ticketCntrl.createTicket );
 
 router.get('/:id', ticketCntrl.getTicket );
 
+router.put('/:id', ticketCntrl.subEditTicket );
 
+router.get('/edit/:id', ticketCntrl.editTicket );
+
+router.put('/edit/:id/addAction/', ticketCntrl.addAction );
 
 
 

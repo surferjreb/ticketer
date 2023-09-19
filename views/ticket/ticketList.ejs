@@ -6,10 +6,12 @@
         </div>
     </div>
 <hr class="border border-danger border-2 opacity-50">
-    <div class="row justify-content-center">
-        <div class="col">
-            <table class="table table-hover">
-                <p class="display-6">Open</p>
+<div class="row">
+    <div class="col"></div>
+    <div class="col">
+        <div class="table-responsive-sm">
+            <table class="table table-bordered table-hover">
+                <p class="display-6">New</p>
                 <thead>
                     <tr>
                         <th scope="col">Number</th>
@@ -18,7 +20,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for(let ticket of openTickets) { %>
+                    <% for(let ticket of newTickets) { %>
                         <tr>
                             <td><a href="/tickets/<%= ticket._id %>"><%= ticket.ticketNumber %></a></td>
                             <td><%= ticket.title %></td>
@@ -28,47 +30,80 @@
                 </tbody>
             </table>
         </div>
+    </div>
+    <div class="col"></div>
+</div>
+    <div class="row justify-content-center">
         <div class="col">
-            <table class="table table-hover">
-                <p class="display-6">On Hold</p>
-                <thead>
-                    <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for(let ticket of onHoldTickets) { %>
+            <div class="table-responsive-sm">
+                <table class="table table-hover">
+                    <p class="display-6">Open</p>
+                    <thead>
                         <tr>
-                            <td><%= ticket.ticketNumber %></td>
-                            <td><%= ticket.title %></td>
-                            <td><%= ticket.ticketStatus %></td>
+                            <th scope="col">Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">status</th>
                         </tr>
-                    <% } %>    
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% for(let ticket of openTickets) { %>
+                            <tr>
+                                <td><a href="/tickets/<%= ticket._id %>"><%= ticket.ticketNumber %></a></td>
+                                <td><%= ticket.title %></td>
+                                <td><%= ticket.ticketStatus %></td>
+                            </tr>
+                        <% } %>    
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="col">
-            <table class="table table-hover">
-                <p class="display-6">Closed</p>
-                <thead>
-                    <tr>
-                        <th scope="col">Number</th>
-                        <th scope="col">Title</th>
-                        <th scope="col">status</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% for(let ticket of closedTickets) { %>
+            <div class="table-resposive-sm">
+                <table class="table table-hover">
+                    <p class="display-6">On Hold</p>
+                    <thead>
                         <tr>
-                            <td><%= ticket.ticketNumber %></td>
-                            <td><%= ticket.title %></td>
-                            <td><%= ticket.ticketStatus %></td>
+                            <th scope="col">Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">status</th>
                         </tr>
-                    <% } %>    
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <% for(let ticket of onHoldTickets) { %>
+                            <tr>
+                                <td><%= ticket.ticketNumber %></td>
+                                <td><%= ticket.title %></td>
+                                <td><%= ticket.ticketStatus %></td>
+                            </tr>
+                        <% } %>    
+                    </tbody>
+                </table>
+            </div>
+            
+        </div>
+        <div class="col">
+            <div class="table-responsive-sm">
+                <table class="table table-hover">
+                
+                    <p class="display-6">Closed</p>
+                    <thead>
+                        <tr>
+                            <th scope="col">Number</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% for(let ticket of closedTickets) { %>
+                            <tr>
+                                <td><%= ticket.ticketNumber %></td>
+                                <td><%= ticket.title %></td>
+                                <td><%= ticket.ticketStatus %></td>
+                            </tr>
+                        <% } %>    
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

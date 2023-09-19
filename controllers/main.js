@@ -4,7 +4,7 @@ const supportUser = require('../models/supportUser');
 
 
 const _getHomeView = async (req, res) => {
-    const tickets = await ticket.find({'ticketStatus': 'open' });
+    const tickets = await ticket.find();
     
     res.render( 'index', { title: 'Ticketer', tickets: tickets } );
 }
