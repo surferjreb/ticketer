@@ -1,33 +1,53 @@
-<% layout( 'layouts/boilerplate' ) %>
-<div class="container-fluid ">
+<% layout('layouts/boilerplate') %>
+<div class="container-fluid mt-5">
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <table class="table table-dark table-striped-columns table-hover">
-                <thead>
-                    <th>First Name </th>
-                    <th>Last Name </th>
-                    <th>Email</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><%= cust.firstName %></td>
-                        <td><%= cust.lastName %></td>
-                        <td><%= cust.email %></td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="col"></div>
-    </div>
-    <!-- <div class="row">
-        <div class="col"></div>
-        <div class="col text-end">
-            <form class="form mb-3" action="/customers/new" method="GET" >
-                <button type="submit" class="btn btn-info mb-3">Add New Customer</button>
+            <form class="form mb-3 needs-validation" action="/customers/show/<%= cust._id %>?_method=PUT" method="POST" novalidate>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="fName" >First Name: </label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" id="fName" name="cust[firstName]" value="<%= cust.firstName %>" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="lName" >Last Name: </label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" id="lName" name="cust[lastName]" value="<%= cust.lastName %>" required>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="email" >Email: </label>
+                    </div>
+                    <div class="col">
+                        <input class="form-control" type="text" id="email" name="cust[email]" value="<%= cust.email %>" required>
+                    </div>
+                </div>
+                <div class="row text-end">
+                    <div class="col"><button class="btn btn-warning">Edit</button></div>
+                </div>
             </form>
         </div>
         <div class="col"></div>
-    </div> -->
-    
+        <div class="row mt-3">
+            <div class="col"></div>
+            <div class="col">
+                <form class="form mb-3 needs-validation" action="/customers/show/<%= cust._id %>?_method=DELETE" method="POST" novalidate>
+                    <div class="row">
+                        <div class="col">
+                            <button class="btn btn-danger" >Delete Customer</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col">
+               
+            </div>
+        </div>
+    </div>
 </div>

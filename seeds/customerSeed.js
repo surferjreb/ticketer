@@ -25,7 +25,7 @@ const customerSeeds = [
     {
         firstName: 'Marshall',
         lastName: 'Mathers',
-        email: 'supergoat@live.com',
+        email: 'supergoat@live.com'
     },
     {
         firstName: 'Frank',

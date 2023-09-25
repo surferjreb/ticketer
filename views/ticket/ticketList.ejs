@@ -71,7 +71,7 @@
                     <tbody>
                         <% for(let ticket of onHoldTickets) { %>
                             <tr>
-                                <td><%= ticket.ticketNumber %></td>
+                                <td><a href="/tickets/<%= ticket._id %>"><%= ticket.ticketNumber %></a></td>
                                 <td><%= ticket.title %></td>
                                 <td><%= ticket.ticketStatus %></td>
                             </tr>
@@ -96,7 +96,7 @@
                     <tbody>
                         <% for(let ticket of closedTickets) { %>
                             <tr>
-                                <td><%= ticket.ticketNumber %></td>
+                                <td><a href="/tickets/<%= ticket._id %>"><%= ticket.ticketNumber %></a></td>
                                 <td><%= ticket.title %></td>
                                 <td><%= ticket.ticketStatus %></td>
                             </tr>

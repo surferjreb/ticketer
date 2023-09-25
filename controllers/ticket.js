@@ -1,4 +1,3 @@
-const mongoose = require('mongoose');
 const ticket = require('../models/ticket');
 const supportUser = require('../models/supportUser');
 const company = require('../models/company');

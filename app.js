@@ -12,6 +12,7 @@ const port = 8080;
 const indexRouter = require('./routes/index.js');
 const ticketRouter = require('./routes/ticket.js');
 const customerRouter = require('./routes/customer.js');
+const companyRouter = require('./routes/company.js');
 const supportRouter = require('./routes/supportUsers.js');
 
 app.engine('ejs', ejsMate);
@@ -27,6 +28,7 @@ app.use('/', indexRouter);
 app.use('/tickets', ticketRouter);
 app.use('/supportUser', supportRouter);
 app.use('/customers', customerRouter);
+app.use('/companies', companyRouter);
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))

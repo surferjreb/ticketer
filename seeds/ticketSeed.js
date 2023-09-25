@@ -5,16 +5,51 @@ const db = require('../models/db');
 console.log(db);
 const ticketSeed = [
     {
-        date: '22/08/23',
+        date: '22/09/23',
         time: '15:00:00',
-        ticketNumber: 11,
-        title: "Test 11",
+        ticketNumber: 1,
+        title: "Test 1",
         description: 'More, More, More, More of Some stuff that should go here.',
         companies: [
-            "64e3c7d516ac523a34fdaa03"
+            "6511d3ddeb88690ab34b8e75"
         ],
         customers: [
-            "64e3c786e4a22be3eaefe702"
+            "6511d427587bd6eaeab73871"
+        ],
+        owners: [
+            "64e3d07d38bb82a3417258a9"
+        ],
+        ticketStatus: 'open'
+    },
+    {
+        date: '22/09/23',
+        time: '16:00:00',
+        ticketNumber: 2,
+        title: "Test 2",
+        description: 'Things happened, some more things and then come more things.  Inspected customer logs, adjusted configuration.',
+        companies: [
+            "6511d3ddeb88690ab34b8e75"
+        ],
+        customers: [
+            "6511d427587bd6eaeab73872",
+            "6511d427587bd6eaeab73873"
+        ],
+        owners: [
+            "64e3d07d38bb82a3417258aa"
+        ],
+        ticketStatus: 'closed'
+    },
+    {
+        date: '22/08/23',
+        time: '15:00:00',
+        ticketNumber: 3,
+        title: "Test 3",
+        description: 'More, More, More, More of Some stuff that should go here.',
+        companies: [
+            "6511d3ddeb88690ab34b8e76"
+        ],
+        customers: [
+            "6511d427587bd6eaeab73877"
         ],
         owners: [
             "64e3d07d38bb82a3417258a9"
@@ -23,22 +58,38 @@ const ticketSeed = [
     },
     {
         date: '22/08/23',
-        time: '16:00:00',
-        ticketNumber: 12,
-        title: "Test 12",
-        description: 'Things happened, some more things and then come more things.  Inspected customer logs, adjusted configuration.',
+        time: '15:00:00',
+        ticketNumber: 4,
+        title: "Test 4",
+        description: 'More, More, More, More of Some stuff that should go here.',
         companies: [
-            "64e3c7d516ac523a34fdaa03"
+            "6511d3ddeb88690ab34b8e77"
         ],
         customers: [
-            "64e3c786e4a22be3eaefe702",
-            "64e18bea375e200765d4d485"
+            "6511d427587bd6eaeab73877"
         ],
         owners: [
             "64e3d07d38bb82a3417258aa"
         ],
-        ticketStatus: 'closed'
+        ticketStatus: 'open'
     },
+    {
+        date: '22/08/23',
+        time: '15:00:00',
+        ticketNumber: 5,
+        title: "Test 5",
+        description: 'More, More, More, More of Some stuff that should go here.',
+        companies: [
+            "6511d3ddeb88690ab34b8e77"
+        ],
+        customers: [
+            "6511d427587bd6eaeab73875"
+        ],
+        owners: [
+            "64e3d07d38bb82a3417258a9"
+        ],
+        ticketStatus: 'open'
+    }
 ]
 
 const seedDB = async () => {
