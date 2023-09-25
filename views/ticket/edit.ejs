@@ -20,7 +20,19 @@
                         <textarea class="form-control" type="text" id="desc" name="ticket[description]"><%= ticket.description %></textarea>
                     </div>
                 </div>
-                
+                <div class="row mb-3">
+                    <div class="col">
+                        <label class="form-label" for="tStatus" >Status: </label>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="ticket status" name="ticket[ticketStatus]" id="tStatus">
+                            <option selected><%= ticket.ticketStatus %></option>
+                            <option value="close">close</option>
+                            <option value="onhold">place on hold</option>
+                            <option value="open">open</option>
+                          </select>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col text-center">
                         <button type="submit" class="btn btn-info mb-3">Update</button>
