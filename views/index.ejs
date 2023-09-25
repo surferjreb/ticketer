@@ -1,7 +1,32 @@
 <% layout('layouts/boilerplate.ejs') %>
-<div class="container-fluid">
+<div class="container-fluid text-center vh-100 mt-2">
+    <div class="row justify-content-center">
+        <div class="col"></div>
+        <div class="col">
+            <p class="display-4"><%= title %></p>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let ticket of tickets) { %>
+                        <tr>
+                            <td><%= ticket.ticketNumber %></td>
+                            <td><%= ticket.title %></td>
+                            <td><%= ticket.ticketStatus %></td>
+                        </tr>
+                    <% } %>    
+                </tbody>
+            </table>
+            <% if(tickets.length < 1 ) { %>
+                <p class="display-6">No Open tickets</p>
+            <% } %>
+        </div>
+        <div class="col"></div>
+    </div>
     
-    <h1><%= title %></h1>
-    <h3>Welcome</h3>
-    <p>Hello!</p>
 </div>

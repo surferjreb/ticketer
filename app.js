@@ -4,12 +4,14 @@ const path = require('path');
 const ejsMate = require('ejs-mate');
 const methodOverride = require('method-override');
 const ExpressError = require('./utils/ExpressError');
-require('./models/db.js');
+const db = require('./models/db.js');
 
 const app = express();
 const port = 8080;
 
 const indexRouter = require('./routes/index.js');
+const ticketRouter = require('./routes/ticket.js');
+const customerRouter = require('./routes/customer.js');
 const supportRouter = require('./routes/supportUsers.js');
 
 app.engine('ejs', ejsMate);
@@ -22,18 +24,23 @@ app.use(methodOverride('_method'));
 
 
 app.use('/', indexRouter);
+app.use('/tickets', ticketRouter);
 app.use('/supportUser', supportRouter);
-
-app.use((err, reg, res, next) => {
-    const { statusCode=500 } = err;
-    if(!err.message) err.message = "Run, Things wnet wrong...";
-    res.status(statusCode).render('error', { title: 'Error', err});
-});
+app.use('/customers', customerRouter);
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page Not Found', 404))
 });
 
+app.use((err, reg, res, next) => {
+    const { statusCode=500 } = err;
+    if(!err.message) err.message = "Run, Things went sideways...";
+    res.status(statusCode).render('error', { title: 'Error', err});
+});
+
+
+
 app.listen(port, () => {
+    //console.log(db);
     console.log(`listening at port: ${port}`);
 });
