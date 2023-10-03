@@ -30,6 +30,28 @@
         </div>
         <div class="col"></div>
     </div>
+    <div class="row">
+        <div class="col"></div>
+        <div class="col">
+            <form class="form mt-3" action="/companies/show/<%= comp._id %>/add/customers" method="POST">
+                <div class="row">
+                    <div class="col">
+                        <select class="form-select" aria-label="Customer selector">
+                            <option selected>Add Employee</option>
+                            <% for(let cust of custs) { %>
+                                <option name="customer[id]" value="<%= cust._id %>"><%= cust.firstName %> <%= cust.lastName %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-info ">Add a Employee</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+        <div class="col"></div>
+    </div>
     <!-- <div class="row">
         <div class="col"></div>
         <div class="col text-end">
