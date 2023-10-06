@@ -1,15 +1,15 @@
 <% layout('layouts/boilerplate') %>
 <div class="container-fluid mt-5">
     <div class="row">
-        <div class="col"></div>
+        <div class="col-sm-2"></div>
         <div class="col">
-            <form class="form mb-3" action="/tickets/<%= ticket._id%>?_method=PUT" method="POST" >
+            <form class="form mb-3" action="/tickets/<%= tic._id%>?_method=PUT" method="POST" >
                 <div class="row mb-3">
                     <div class="col">
                         <label class="form-label" for="title" >Title: </label>
                     </div>
                     <div class="col">
-                        <input class="form-control" type="text" id="title" name="ticket[title]" value="<%= ticket.title %>">
+                        <input class="form-control" type="text" id="title" name="ticket[title]" value="<%= tic.title %>">
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -17,7 +17,7 @@
                         <label class="form-label" for="desc" >Description: </label>
                     </div>
                     <div class="col">
-                        <textarea class="form-control" type="text" id="desc" name="ticket[description]"><%= ticket.description %></textarea>
+                        <textarea class="form-control" type="text" id="desc" name="ticket[description]"><%= tic.description %></textarea>
                     </div>
                 </div>
                 <div class="row mb-3">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col">
                         <select class="form-select" aria-label="ticket status" name="ticket[ticketStatus]" id="tStatus">
-                            <option selected><%= ticket.ticketStatus %></option>
+                            <option selected><%= tic.ticketStatus %></option>
                             <option value="close">close</option>
                             <option value="onhold">place on hold</option>
                             <option value="open">open</option>
@@ -41,7 +41,7 @@
                 
             </form>
         </div>
-        <div class="col"></div>
+        <div class="col-sm-2"></div>
     </div>
     
 </div>

@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+    <div class="col-sm-2 border-end"></div>
+    <div class="col m-3">
+        <form action="/companies/edit/<%= comp._id %>?_method=PUT" method="POST" novalidate>
+            <div class="row mb-3">
+                <div class="col-sm-3">
+                    <label class="form-label" for="cName">Company Name: </label>
+                </div>
+                <div class="col test-start">
+                    <input type="text" class="form-control" name="comp[companyName]" id="cName" value="<%= comp.companyName %>" required >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <label class="form-label" for="cURL">Company Url: </label>
+                </div>
+                <div class="col test-start">
+                    <input type="text" class="form-control" name="comp[companyUrl]" id="cURL" value="<%= comp.companyUrl %>" >
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-end mt-3">
+                    <button class="btn btn-secondary" type="submit"> Save </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2 border-start">
+
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-2 border-end"></div>
+    <div class="col m-3">
+        <form action="/companies/edit/<%= comp._id %>?_method=DELETE" method="POST" novalidate>
+            <div class="row">
+                <div class="col text-end mt-3">
+                    <button class="btn btn-danger" type="submit"> Delete </button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-2 border-start">
+        
+    </div>
+</div>

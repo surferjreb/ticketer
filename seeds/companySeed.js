@@ -6,15 +6,19 @@ require('../models/db');
 const seedCompanies = [
     {
         companyName: 'G-suite',
-        companyUrl: 'gsuite.com',
+        companyUrl: 'https://gsuite.com',
     },
     {
         companyName: 'techJunkies',
-        companyUrl: 'techjunkies.com'
+        companyUrl: 'https://techjunkies.com'
     },
     {
         companyName: 'Congrant',
-        companyUrl: 'congrant.com'
+        companyUrl: 'https://congrant.com'
+    },
+    {
+        companyName: 'Unknown',
+        companyUrl: 'Unknown'
     }
 ]
 
