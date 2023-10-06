@@ -51,12 +51,9 @@ const _createTicket = catchAsync( async (req, res, next) => {
 
 const _editTicket = catchAsync( async (req, res, next) => {
     const { id } = req.params;
-    const tic = await ticket.findById(id);
+    const tic = await ticket.findById(id).populate('customers companies owners');
     //console.log(tic.description);
-    const customers = await customer.findById(tic.customers)
-    const companies = await company.findById(tic.companies)
-    const owners = await supportUser.findById(tic.owners)
-    res.render('ticket/edit', {title: 'Edit', ticket: tic, customers, companies, owners });
+    res.render('ticket/edit', {title: 'Edit', tic });
 })
 
 const _subEditTicket = catchAsync( async (req, res, next) => {

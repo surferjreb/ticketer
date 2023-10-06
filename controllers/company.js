@@ -12,8 +12,8 @@ const _getHomeView = catchAsync( async(req, res) => {
 // view a company and customers
 const _getCompanyView = catchAsync( async(req, res) => {
     const { id } = req.params;
-    const comp = await company.findById(id).populate( 'customers' );
-    const custs = await customer.find({});
+    const comp = await company.findById(id);
+    const custs = await customer.find({ company: comp._id });
 
     res.render('company/show', { title: 'Company', comp, custs });
 });
@@ -25,21 +25,17 @@ const _editCompany = catchAsync( async(req, res) => {
 
 // add a new company
 const _addACompany = catchAsync( async(req, res) => {
-
+    res.render('company/new', { 'title': 'New Company' });
 });
 
-// add customer to company
-const _addCompanyWorker = catchAsync( async(req, res) => {
-    const comp = await company.findById(req.params.id);
-    console.log(req.body.customer.id);
-    
-    console.log(comp)
-    res.redirect(`/companies/show/${comp._id}`);
-});
+const _addCompany =  catchAsync( async(req, res) => {
+    const newCompany = new company({
+        companyName: req.body.comp.companyName,
+        companyUrl: req.body.comp.companyUrl
+    });
 
-
-// remove a customer from a company
-const _removeCompanyWorker = catchAsync( async(req, res) => {
+    await newCompany.save();
+    res.redirect(`companies/show/${newCompany._id}`);
 
 });
 
@@ -52,6 +48,5 @@ module.exports.getHomeView = _getHomeView;
 module.exports.getCompanyView = _getCompanyView;
 module.exports.editCompany = _editCompany;
 module.exports.addACompany = _addACompany;
-module.exports.addCompanyWorker = _addCompanyWorker;
-module.exports.removeCompanyWorker = _removeCompanyWorker;
+module.exports.addCompany = _addCompany;
 module.exports.deleteCompany = _deleteCompany;

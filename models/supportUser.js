@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const company = require('./company');
 const { Schema } = mongoose;
 
 
@@ -14,6 +15,10 @@ const supportUsersSchema = new Schema({
     email: {
         type: String,
         required: true
+    },
+    company: {
+        type: Schema.Types.ObjectId,
+        ref: company
     },
     tickets: {
         type: Number,

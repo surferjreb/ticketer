@@ -10,12 +10,14 @@ const supportSeed = [
         firstName: 'James',
         lastName: 'Brown',
         email: 'surferjreb@live.com',
+        company: "651f5b906ef8ddcef4a2f8fd",
     },
     {
         _id: "64e3d07d38bb82a3417258aa",
         firstName: 'Fred',
         lastName: 'Durst',
         email: 'soggyBiscutt@live.com',
+        company: "651f5b906ef8ddcef4a2f8fd",
     }
 ]
 

@@ -20,7 +20,7 @@
                     <th>Name </th>
                 </thead>
                 <tbody>
-                    <% for(let customer of comp.customers ) { %>
+                    <% for(let customer of custs ) { %>
                     <tr>
                         <td><%= customer.firstName %> <%= customer.lastName %></td>
                     </tr>
@@ -33,7 +33,7 @@
     <div class="row">
         <div class="col"></div>
         <div class="col">
-            <form class="form mt-3" action="/companies/show/<%= comp._id %>/add/customers" method="POST">
+            <!-- <form class="form mt-3" action="/companies/show/<%= comp._id %>/add/customers" method="POST">
                 <div class="row">
                     <div class="col">
                         <select class="form-select" aria-label="Customer selector">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 
-            </form>
+            </form> -->
         </div>
         <div class="col"></div>
     </div>

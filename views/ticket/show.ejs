@@ -2,7 +2,7 @@
 
 <div class="container-fluid mt-5">
     <div class="row">
-        <div class="col border-end"></div>
+        <div class="col-sm-2 border-end"></div>
         <div class="col">
             <div class="row display-6 my-5">
                 <div class="col ">Title: </div>
@@ -14,11 +14,11 @@
                 <div class="col "></div>
             </div>
         </div>
-        <div class="col border-start"></div>
+        <div class="col-sm-2 border-start"></div>
         
     </div>
     <div class="row">
-        <div class="col border-end"></div>
+        <div class="col-sm-2 border-end"></div>
         <div class="col">
             <div class="row">
                 <div class="col">
@@ -51,13 +51,13 @@
                         </div>
                         <div class="col"><%= tickDetail.ticketStatus %></div>
                     </div>
-                    <div class="row my-1">
-                        <div class="col-sm-5">Customer: </div>
-                        <div class="col">
-                            <% for(let customer of tickDetail.customers ) { %>
-                                <p><%= customer.lastName %>, <%= customer.firstName %></p>
-                            <% } %>
-                        </div>
+                </div>
+                <div class="row my-1">
+                    <div class="col-sm-5">Customer: </div>
+                    <div class="col-auto">
+                        <% for(let customer of tickDetail.customers ) { %>
+                            <p><%= customer.lastName %>, <%= customer.firstName %></p>
+                        <% } %>
                     </div>
                 </div>
             </div>
@@ -135,7 +135,7 @@
            </div>
         </div>
         
-        <div class="col border-start">
+        <div class="col-sm-2 border-start">
            
         </div>
     </div>
