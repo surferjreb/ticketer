@@ -36,7 +36,7 @@ app.all('*', (req, res, next) => {
 
 app.use((err, reg, res, next) => {
     const { statusCode=500 } = err;
-    if(!err.message) err.message = "Run, Things went sideways...";
+    if(!err.message) err.message = "Run!!, Things went sideways...";
     res.status(statusCode).render('error', { title: 'Error', err});
 });
 
