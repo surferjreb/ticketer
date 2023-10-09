@@ -16,6 +16,8 @@ router.put('/:id', ticketCntrl.subEditTicket );
 
 router.get('/edit/:id', ticketCntrl.editTicket );
 
+router.delete('/edit/:id', ticketCntrl.deleteTicket );
+
 router.put('/edit/:id/addAction/', ticketCntrl.addAction );
 
 

@@ -84,6 +84,14 @@ const _addAction = catchAsync( async (req, res, next) => {
     res.redirect(`/tickets/${tic._id}`);
 })
 
+const _deleteTicket = catchAsync( async (req, res) => {
+    const { id } = req.params;
+
+    const tic = await ticket.findByIdAndDelete(id);
+
+    res.redirect('/tickets');
+})
+
 
 module.exports.getHomeView = _getHomeView;
 module.exports.getTicket = _getTicket;
@@ -92,3 +100,4 @@ module.exports.createTicket = _createTicket;
 module.exports.editTicket = _editTicket;
 module.exports.subEditTicket = _subEditTicket;
 module.exports.addAction = _addAction;
+module.exports.deleteTicket = _deleteTicket;
