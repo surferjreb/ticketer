@@ -42,6 +42,16 @@ const ticketSchema = new Schema({
     }]
 });
 
+ticketSchema.post('findOneAndDelete', async (doc) => {
+    if(doc){
+        await ticketAction.deleteOne({
+            _id: {
+                $in: doc.actions
+            }
+        });
+    }
+});
+
 const ticket = mongoose.model('ticket', ticketSchema);
 
 module.exports = ticket;
