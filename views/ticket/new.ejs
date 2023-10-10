@@ -32,7 +32,7 @@
                     </div>
                     <div class="col">
                         <select class="form-select" id="owner" name="ticket[owners]" aria-label="Owner selector">
-                            <option selected>Select Owner</option>
+                            <option selected>Unknown</option>
                             <% for(let owner of owners) { %>
                                 <option value="<%= owner._id%>"><%= owner.lastName%>, <%= owner.firstName %></option>
                             <% } %>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="col">
                         <select class="form-select" id="company" name="ticket[companies]" aria-label="Company selector"> 
-                            <option selected>Select Company</option>
+                            <option selected>Unknown</option>
                             <% for(let comp of companies) { %>
                                 <option value="<%= comp._id %>"><%= comp.companyName %></option>
                             <% } %>
@@ -61,7 +61,7 @@
                     </div>
                     <div class="col">
                         <select class="form-select" id="customer" name="ticket[customers]" aria-label="customer selector">
-                            <option selected>Select Customer</option>
+                            <option selected>Unknown</option>
                             <% for(let cus of customers) { %>
                                 <option value="<%= cus._id %>"><%= cus.lastName%>, <%= cus.firstName %></option>
                             <% } %>

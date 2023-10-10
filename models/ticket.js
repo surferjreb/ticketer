@@ -7,8 +7,14 @@ const { Schema } = mongoose;
 
 
 const ticketSchema = new Schema({
-    date: String,
-    time: String,
+    date: {
+        type: String,
+        required: true
+    },
+    time: {
+        type: String,
+        required: true
+    },
     ticketNumber: Number,
     title: {
         type: String,

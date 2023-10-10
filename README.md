@@ -34,4 +34,4 @@
 >
 
 > ## License:
-> ISC
+> MIT
