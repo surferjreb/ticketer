@@ -48,6 +48,7 @@ const _createTicket = catchAsync( async (req, res, next) => {
 
     const tic = await newTicket.save();
     if(!tic) throw new expressError('Unable to create ticket', 401);
+    req.flash('success', `Successfully added ticket: ${tic.ticketNumber}`);
     res.redirect(`/tickets/${tic._id}`);
 });
 
@@ -62,6 +63,7 @@ const _subEditTicket = catchAsync( async (req, res, next) => {
     const { id } = req.params;
     const tic = await ticket.findByIdAndUpdate(id, { ...req.body.ticket });
     if(!tic) throw new expressError('Unable to edit ticket', 401);
+    req.flash('success', `Updated Ticket: ${tic.ticketNumber}`);
     res.redirect(`/tickets/${tic._id}`);
 })
 
@@ -87,6 +89,7 @@ const _addAction = catchAsync( async (req, res, next) => {
     tic.actions.push(action);
 
     const newTicket = await tic.save();
+    req.flash('success', 'Action Added');
     res.redirect(`/tickets/${newTicket._id}`);
 })
 
@@ -95,6 +98,7 @@ const _deleteTicket = catchAsync( async (req, res) => {
 
     const tic = await ticket.findByIdAndDelete(id);
     if(!tic) { throw new expressError('Unable to delete', 404)}
+    req.flash('success', `Ticket ${tic.ticketNumber} deleted!`)
     res.redirect('/tickets');
 })
 
