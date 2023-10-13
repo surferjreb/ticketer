@@ -29,22 +29,25 @@ const _createCustomer = catchAsync( async(req, res) => {
 
     const cust = await newCustomer.save();
     if(!cust) throw new expressError('Unable to create customer', 404);
-
+    req.flash('success', `${cust.firstName} ${cust.lastName} Added`);
     res.redirect(`/customers/show/${cust._id}`);
 });
+
 
 const _editCustomer = catchAsync(async(req, res) => {
     const { id } = req.params;
     const cust = await customer.findByIdAndUpdate(id, { ...req.body.cust });
     if(!cust) throw new expressError('Unable to edit customer', 404);
+    req.flash('success', 'Updated Customer');
     res.redirect(`/customers/show/${ id }`);
 });
+
 
 const _deleteCustomer = catchAsync(async(req, res) => {
     const { id } = req.params
     const cust = await customer.findByIdAndDelete(id);
     if(!cust) throw new expressError('Unable to find to delete', 404);
-    
+    req.flash('success', `${cust.firstName} ${cust.lastName} removed`);
     res.redirect('/customers');
 })
 

@@ -27,6 +27,7 @@ const _editCompany = catchAsync( async(req, res) => {
 
     const comp = await company.findByIdAndUpdate( id, { ...req.body.comp });
     if(!comp) throw new expressError('unable to update company');
+    req.flash('success', 'Updated Company');
     res.redirect(`/companies/show/${ comp._id }`);
 });
 
@@ -54,6 +55,7 @@ const _addCompany = catchAsync( async(req, res) => {
     const comp = await newCompany.save();
     //console.log(comp._id);
     if(!comp) throw new expressError('Unable to add company', 401);
+    req.flash('success', `${comp.companyName} Added`);
     res.redirect(`/companies/show/${comp._id}`);
 
 });
@@ -64,6 +66,7 @@ const _deleteCompany = catchAsync( async(req, res) => {
 
     const comp = await company.findByIdAndDelete(id);
     if(!comp) throw new expressError('Unable to delete', 401);
+    req.flash('success', `${comp.companyName}`);
     res.redirect('/companies');
 });
 
