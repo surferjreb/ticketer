@@ -1,6 +1,6 @@
 
 # Ticketer
-    ***By: James R E Brown***
+*By: James R E Brown*
 
 ---
 
