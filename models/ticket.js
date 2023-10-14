@@ -39,7 +39,7 @@ const ticketSchema = new Schema({
     ticketStatus: {
         type: String,
         lowercase: true,
-        enum: ['new', 'open', 'onhold', 'closed'],
+        enum: ['new', 'open', 'onhold', 'closed', 'deleted'],
         default: 'new'
     },
     actions: [{
