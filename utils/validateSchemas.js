@@ -31,13 +31,14 @@ module.exports.customerValSchema = Joi.object({
 module.exports.ticketValSchema = Joi.object({
     ticket: Joi.object({
         title: Joi.string()
-            .alphanum()
             .min(1)
             .max(50)
             .required(),
         description: Joi.string()
-            .alphanum()
             .min(3)
-            .required()
+            .required(),
+        owners: Joi.string(),
+        companies: Joi.string(),
+        customers: Joi.string()
     }).required()
 });

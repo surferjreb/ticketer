@@ -32,13 +32,25 @@ const _getTicketForm = catchAsync( async (req, res) => {
     res.render('ticket/new', { title: 'New Ticket', owners, companies, customers });
 });
 
+// used to create ticket number currently..
+const _getTicketNumber = catchAsync( async () => {
+    const tick = await ticket.find({}).sort({_id: 'desc' }).limit(1);
+    
+    
+    return tick[0].ticketNumber + 1;
+});
+
 const _createTicket = catchAsync( async (req, res, next) => {
     const newDate = new Date();
+    const tick = await ticket.find({}).sort({_id: 'desc'}).limit(1);
+    if(!tick){ throw new expressError('unable to find last ticket', 404); }
     
+    // console.log(tick[0].ticketNumber);
+
     const newTicket = new ticket({
         date: `${newDate.toLocaleDateString()}`,
         time: `${newDate.toLocaleTimeString('en-US')}`,
-        ticketNumber: `${await ticket.find({}).count() + 1}`,
+        ticketNumber: tick[0].ticketNumber + 1,
         title: `${req.body.ticket.title}`,
         description: `${req.body.ticket.description}`,
         companies: `${req.body.ticket.companies}`,
